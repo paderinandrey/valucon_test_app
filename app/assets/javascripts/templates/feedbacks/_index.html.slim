@@ -1,0 +1,20 @@
+h3 Feedbacks
+ul.list-group
+  li.list-group-item.list-group-item-info ng-repeat=("feedback in feedbacks")
+    h3 
+      '{{feedback.email}} 
+    p 
+      '{{feedback.text}}
+
+
+.row.text-center
+  .col-xs-3
+    a.btn.btn-primary.btn-lg href="#" ng-click=("showForm = !showForm") ng-show="!showForm" Leave feedback
+  .col-xs-3
+    form ng-submit="addFeedback()" ng-show="showForm" 
+      h3 Leave feedback
+      .form-group
+        input.form-control ng-model="email" placeholder="Email" type="email"
+      .form-group
+        textarea.form-control ng-model="text" placeholder="Text" 
+      button.btn.btn-primary type="submit"  Submit
