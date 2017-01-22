@@ -1,0 +1,12 @@
+.row
+  .col-md-6.col-md-offset-3
+    ui-view
+.page-header
+  h1 Customer feedback
+  
+div[ng-controller="feedbacksController"] 
+  div[ng-repeat="feedback in feedbacks"]
+    h4
+     | {{feedback.email}} 
+    p
+     | {{feedback.text}}
