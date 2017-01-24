@@ -12,6 +12,7 @@ AllCops:
     - 'config/puma.rb'
     - 'config/spring.rb'
     - 'config/environments/production.rb'
+    - 'config/initializers/dragonfly.rb'
   TargetRubyVersion: 2.3
 
 Style/FrozenStringLiteralComment:

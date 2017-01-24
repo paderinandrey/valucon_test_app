@@ -1,0 +1,27 @@
+doctype html
+html
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    title Memes
+
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+    
+  body
+
+    h1 List of memes
+    
+    =form_for Photo.new do |f|
+      h4 New meme
+      .form-group
+        =f.label :image
+        =f.file_field :image, required: true
+    
+      =f.submit 'Submit', class: 'btn bth-primary btn-lg'
+    
+    ul#photos-list.row
+      - @photos.each do |photo|
+        li.col-xs-3
+          = link_to image_tag(photo.image.thumb('100x100#').url, class: 'img-thumbnail'),
+            photo.image.remote_url, target: '_blank'
